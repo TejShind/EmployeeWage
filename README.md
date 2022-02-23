@@ -3,3 +3,4 @@
 2) Check Employee attendance.
 3) Add Daily employee wage.
 4) Part-time Employee wage.
+5) Solving using Switch case statement.
