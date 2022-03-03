@@ -5,4 +5,5 @@
 4) Part-time Employee wage.
 5) Solving using Switch case statement.
 6) Calculating Wages for month.
-7)Calculate wages till condition met(Total working hours=100, Maximum days =20)
+7) Calculate wages till condition met(Total working hours=100, Maximum days =20)
+8) Refactor the code by using class method and class variables.

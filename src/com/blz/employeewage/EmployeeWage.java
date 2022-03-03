@@ -8,32 +8,36 @@ public class EmployeeWage {
     public static final int MAX_WORKING_HRS = 100;
 
     public static void main(String[] args) {
-        int empHr = 0;
-        int empWage = 0;
-        int totalWorkingDays = 1, totalEmpWage = 0, totalEmpHrs = 0;
-        System.out.println("Welcome to Employee Wage Computation Program");
-        while (totalEmpHrs < MAX_WORKING_HRS && totalWorkingDays < MAX_WORKING_DAYS)
+        computeWage();
+    }
 
-            for (totalWorkingDays = 1; totalWorkingDays <= MAX_WORKING_DAYS; totalWorkingDays++) {
-                int Empcheck = (int) (Math.random() * 10) % 3;
-                switch (Empcheck) {
-                    case FULL_TIME:
-                        System.out.println("Employee is working Full Time  on day " + totalWorkingDays);
-                        empHr = 8;
-                        break;
-                    case PART_TIME:
-                        System.out.println("Employee is working Part Time  on day " + totalWorkingDays);
-                        empHr = 4;
-                        break;
-                    default:
-                        System.out.println("Employee is Absent on day " + totalWorkingDays);
-                        empHr = 0;
+    private static void computeWage() {
+        int empHr;
+        int totalWorkingDays = 0, totalEmpWage, totalWorkingHrs = 0;
+        System.out.println("Welcome to Employee Wage Computation Program");
+        //Monthly Wage Computation
+        while (totalWorkingDays <= MAX_WORKING_DAYS && totalWorkingHrs <= MAX_WORKING_HRS) {
+            int empCheck = (int) (Math.random() * 10) % 3;
+            switch (empCheck) {
+                case FULL_TIME -> {
+                    System.out.println("Employee is working Full Time  on day " + totalWorkingDays);
+                    empHr = 8;
                 }
-                totalWorkingDays++;
-                totalEmpHrs = +empHr + totalEmpHrs;
+                case PART_TIME -> {
+                    System.out.println("Employee is working Part Time  on day " + totalWorkingDays);
+                    empHr = 4;
+                }
+                default -> {
+                    System.out.println("Employee is Absent on day " + totalWorkingDays);
+                    empHr = 0;
+                }
             }
-        totalEmpWage = EMP_WAGE_PER_HR * totalEmpHrs;
-        System.out.println("Employee worked for " + totalWorkingDays + " Days " + totalEmpHrs + " Hours");
+
+            totalWorkingHrs = totalWorkingHrs + empHr;
+            System.out.println("Employee worked for " + totalWorkingDays + " Days " + totalWorkingHrs + " Hours");
+            totalWorkingDays++;
+        }
+        totalEmpWage = EMP_WAGE_PER_HR * totalWorkingHrs;
         System.out.println("Employee's Monthly wage is " + totalEmpWage);
     }
 }
