@@ -3,20 +3,18 @@ package com.blz.employeewage;
 public class EmployeeWage {
     public static final int FULL_TIME = 1;
     public static final int PART_TIME = 2;
-    public static final int EMP_WAGE_PER_HR = 20;
-    public static final int MAX_WORKING_DAYS = 20;
-    public static final int MAX_WORKING_HRS = 100;
 
     public static void main(String[] args) {
-        computeWage();
+        computeWage("TATA", 50, 20, 22);
+        computeWage("INFOSYS", 35, 20, 25);
     }
 
-    private static void computeWage() {
+    private static void computeWage(String companyName, int empRatePerHr, int numOfWorkingDays, int maxHrPerMonth) {
         int empHr;
         int totalWorkingDays = 0, totalEmpWage, totalWorkingHrs = 0;
         System.out.println("Welcome to Employee Wage Computation Program");
         //Monthly Wage Computation
-        while (totalWorkingDays <= MAX_WORKING_DAYS && totalWorkingHrs <= MAX_WORKING_HRS) {
+        while (totalWorkingDays <= numOfWorkingDays && totalWorkingHrs <= maxHrPerMonth) {
             int empCheck = (int) (Math.random() * 10) % 3;
             switch (empCheck) {
                 case FULL_TIME -> {
@@ -37,7 +35,7 @@ public class EmployeeWage {
             System.out.println("Employee worked for " + totalWorkingDays + " Days " + totalWorkingHrs + " Hours");
             totalWorkingDays++;
         }
-        totalEmpWage = EMP_WAGE_PER_HR * totalWorkingHrs;
-        System.out.println("Employee's Monthly wage is " + totalEmpWage);
+        totalEmpWage = empRatePerHr * totalWorkingHrs;
+        System.out.println("Employee's Monthly wage for " + companyName + " is " + totalEmpWage);
     }
 }
